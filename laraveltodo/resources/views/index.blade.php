@@ -34,12 +34,12 @@
       @foreach ($todos as $todo)
       <tr>
         <td>{{$todo->created_at}}</td>
-        <form action="/update" method="POST">
+        <form action="/update/{id}" method="POST">
           @csrf
           <td><input type=" text" name="title" value="{{$todo->title}}" class="ttl-list"></td>
           <td><input type="submit" value="更新" class="update-btn"></td>
         </form>
-        <form action="/delete" method="POST">
+        <form action="/delete/{id}" method="POST">
           @csrf
           <td><input type="submit" value="削除" class="del-btn"></td>
         </form>
