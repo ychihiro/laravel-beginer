@@ -14,8 +14,11 @@
 <body>
   <div class="wrapper">
     <h1 class="ttl">Todo List</h1>
-    <form action="/" method="POST">
+    <form action="/add" method="POST">
       @csrf
+      <!-- @error('title')
+      <p>{{$message}}</p>
+      @enderror -->
       <div class="ttl-box">
         <input type="text" name="title" class="add-ttl">
         <input type="submit" value="追加" class="add-btn">
@@ -29,12 +32,13 @@
         <th width="10%">削除</th>
       </tr>
       @foreach ($todos as $todo)
-      <input type="hidden" name="id" value="{{$todo->id}}">
       <tr>
         <td>{{$todo->created_at}}</td>
-        <td><input type=" text" name="title" value="{{$todo->title}}" class="ttl-list"></td>
-        <td><input type="submit" value="更新" class="update-btn"></td>
-        <td><input type="submit" value="削除" class="del-btn"></td>
+        <form action="">
+          <td><input type=" text" name="title" value="{{$todo->title}}" class="ttl-list"></td>
+          <td><input type="submit" value="更新" class="update-btn"></td>
+          <td><input type="submit" value="削除" class="del-btn"></td>
+        </form>
       </tr>
       @endforeach
     </table>

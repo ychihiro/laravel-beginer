@@ -16,9 +16,9 @@ class TodoController extends Controller
 
     public function add(TodoRequest $request)
     {
-        $form = $request->$request->all();
+        $form = $request->all();
         Todo::create($form);
-        return redirect('/');
+        return redirect('/todos');
     }
 
     public function update(TodoRequest $request)
@@ -26,12 +26,12 @@ class TodoController extends Controller
         $form = $request->all();
         unset($form['_token']);
         Todo::find($request->id)->update($form);
-        return redirect('/');
+        return redirect('/todos');
     }
 
     public function delete(Request $request)
     {
         Todo::find($request->id)->delete();
-        return redirect('/');
+        return redirect('/todos');
     }
 }
