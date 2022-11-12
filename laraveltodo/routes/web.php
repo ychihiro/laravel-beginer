@@ -20,6 +20,5 @@ Route::get('/', function () {
 
 Route::get('/', [TodoController::class, 'index']);
 Route::post('/add', [TodoController::class, 'add']);
-// Route::post('/form', [TodoController::class, 'form']);
-Route::post('/form', [TodoController::class, 'update']);
-Route::post('/form', [TodoController::class, 'delete']);
+Route::post('/update', [TodoController::class, 'update']);
+Route::post('/delete', [TodoController::class, 'delete']);

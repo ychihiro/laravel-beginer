@@ -21,15 +21,6 @@ class TodoController extends Controller
         return redirect('/');
     }
 
-    public function form(Request $request)
-    {
-        if ($request->has('update')) {
-            $this->update();
-        } elseif ($request->has('delete')) {
-            $this->delete();
-        }
-    }
-
     public function update(TodoRequest $request)
     {
         $form = $request->all();
